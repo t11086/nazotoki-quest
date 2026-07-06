@@ -1,0 +1,396 @@
+:root {
+  --bg: #0f1526;
+  --card: #1b2440;
+  --card-edge: #2a3558;
+  --text: #e8ecf6;
+  --text-dim: #9aa7c7;
+  --accent: #f5b942;
+  --accent-dark: #24170a;
+  --good: #4ade80;
+  --bad: #fb7185;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', system-ui,
+    sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.screen {
+  width: 100%;
+  max-width: 480px;
+  padding: 16px 16px calc(24px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- home ---------- */
+.home-header {
+  text-align: center;
+  padding: 18px 0 4px;
+}
+
+.home-header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.tagline {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.rank-card {
+  gap: 8px;
+}
+
+.rank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.rank-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.rank-points {
+  font-weight: 700;
+}
+
+.bar {
+  height: 10px;
+  border-radius: 999px;
+  background: #0b101f;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f5b942, #f97316);
+  transition: width 0.4s ease;
+}
+
+.menu-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 16px;
+  padding: 16px;
+  color: var(--text);
+}
+
+.menu-card:active {
+  transform: scale(0.98);
+}
+
+.menu-emoji {
+  font-size: 1.8rem;
+}
+
+.menu-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.menu-desc {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.menu-arrow {
+  color: var(--accent);
+}
+
+.foot-note {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+/* ---------- shared card ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card.center {
+  text-align: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.big-emoji {
+  font-size: 3rem;
+}
+
+.big-emoji-inline {
+  font-size: 1.3rem;
+}
+
+/* ---------- case header ---------- */
+.case-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.case-title-small {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.progress-count {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---------- story ---------- */
+.speaker {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.narration {
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.clue-card {
+  border-color: var(--accent);
+}
+
+.clue-title {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---------- quiz ---------- */
+.badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-dark);
+}
+
+.badge-数学 { background: #60a5fa; }
+.badge-英語 { background: #f472b6; }
+.badge-理科 { background: #4ade80; }
+.badge-社会 { background: #fb923c; }
+.badge-国語 { background: #c084fc; }
+.badge-推理 { background: var(--accent); }
+
+.intro {
+  line-height: 1.8;
+  white-space: pre-line;
+  color: var(--text-dim);
+}
+
+.question {
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--card-edge);
+  background: #131b33;
+  color: var(--text);
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.choice:active {
+  transform: scale(0.98);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: rgba(74, 222, 128, 0.12);
+}
+
+.choice:disabled {
+  opacity: 0.85;
+}
+
+.miss {
+  color: var(--bad);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.hints {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hint {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--accent);
+  background: rgba(245, 185, 66, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.reveal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.correct-label {
+  color: var(--good);
+  font-weight: 700;
+}
+
+.explain {
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.note {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* ---------- suspects ---------- */
+.suspects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.suspect {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  column-gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--card-edge);
+  background: #131b33;
+  color: var(--text);
+  text-align: left;
+}
+
+.suspect.correct {
+  border-color: var(--good);
+  background: rgba(74, 222, 128, 0.12);
+}
+
+.suspect-emoji {
+  font-size: 1.5rem;
+}
+
+.suspect-name {
+  font-weight: 700;
+}
+
+.suspect-desc {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* ---------- buttons ---------- */
+.primary {
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.primary:active {
+  transform: scale(0.98);
+}
+
+.ghost {
+  background: none;
+  border: 1px dashed var(--card-edge);
+  border-radius: 10px;
+  color: var(--text-dim);
+  padding: 10px;
+  font-size: 0.85rem;
+}
+
+.ghost.small {
+  border: none;
+  padding: 6px 8px;
+  flex-shrink: 0;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
